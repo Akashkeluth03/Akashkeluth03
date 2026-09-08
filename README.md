@@ -80,13 +80,9 @@ A platform designed to help students planning to study abroad by providing infor
 
 ---
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Bar%20Chart.png" alt="Bar Chart" width="25" /> GitHub Stats
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" alt="Bar Chart" width="25" /> GitHub Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=akashkeluth03&show_icons=true&theme=tokyonight" alt="Akash's GitHub stats" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=akashkeluth03&show_icons=true&theme=tokyonight" alt="Akash's GitHub stats" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=akashkeluth03&theme=tokyonight" alt="Akash's Streak" />
-</div>
-<br/>
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=akashkeluth03&bg_color=1a1b27&color=70a5fd&line=bf91f3&point=16161e&area=true&hide_border=true" alt="Akash's Activity Graph" />
 </div>
