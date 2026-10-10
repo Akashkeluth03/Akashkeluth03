@@ -1,0 +1,11 @@
+{
+  "name": "akash-keluth-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Masterclass interactive portfolio for Akash Keluth",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "dev": "python3 -m http.server 8080",
+    "build": "mkdir -p dist && cp -r index.html style.css script.js assets dist/"
+  }
+}
