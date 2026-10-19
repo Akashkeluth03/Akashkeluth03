@@ -1,54 +1,57 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" data-theme="obsidian">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Akash Keluth — Information Science & Engineering student, Python Developer, AI/ML Researcher, and Cloud & DevOps Builder." />
-  <meta name="keywords" content="Akash Keluth, Akash Keluth Portfolio, AI Engineer, Machine Learning, Python Developer, Cloud DevOps, Full Stack Developer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="description" content="Portfolio of Akash Keluth — Information Science & Engineering student at MSRIT Bangalore, AI/ML Researcher, Cloud & DevOps Practitioner, and Full-Stack Builder." />
+  <meta name="keywords" content="Akash Keluth, Akash Keluth Portfolio, AI Engineer, Machine Learning, Deepfake Audio Detection, Python Developer, Cloud DevOps, Full Stack Developer, MSRIT" />
   <meta name="author" content="Akash Keluth" />
+  <meta name="theme-color" content="#080a11" id="metaThemeColor" />
 
-  <!-- Open Graph / Social Media Meta -->
-  <meta property="og:title" content="Akash Keluth | AI & ML Engineer & Cloud Builder" />
-  <meta property="og:description" content="Building practical solutions with code, data, and intelligent systems." />
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Akash Keluth | AI & ML Engineer • Cloud & DevOps • Full-Stack" />
+  <meta property="og:description" content="Building resilient intelligent systems, signal processing pipelines, and cloud-native software." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/akash-profile.jpg" />
 
-  <title>Akash Keluth | AI & ML Engineer • Cloud & DevOps • Full-Stack</title>
+  <title>Akash Keluth | AI &amp; ML Engineer • Cloud &amp; DevOps • Full-Stack</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome / Lucide Icons for clean iconography -->
+  <!-- Font Awesome 6.5 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3.1.0" />
 </head>
 <body>
-  <!-- Custom Glowing Cursor -->
+  <!-- Custom Glowing Cursor (Desktop Only) -->
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
-  <!-- Background Particle & Gradient Canvas -->
+  <!-- Background Interactive Canvas & Mesh Gradients -->
   <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
-  <div class="ambient-glow glow-1" aria-hidden="true"></div>
-  <div class="ambient-glow glow-2" aria-hidden="true"></div>
-  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+  <div class="ambient-mesh" aria-hidden="true"></div>
 
-  <!-- Toast Notification -->
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+
+  <!-- Toast Notification System -->
   <div id="toast" class="toast-notification" role="alert" aria-live="polite">
-    <i class="fa-solid fa-circle-check"></i>
-    <span id="toastMsg">Email copied to clipboard!</span>
+    <i class="fa-solid fa-circle-check" id="toastIcon"></i>
+    <span id="toastMsg">Action completed successfully!</span>
   </div>
 
-  <!-- Navigation Bar -->
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
   <header class="site-header" id="navbar">
     <div class="nav-container">
-      <a class="brand" href="#top" aria-label="Akash Keluth Home">
+      <a class="brand" href="#top" aria-label="Akash Keluth Homepage">
         <div class="brand-avatar-mini">
-          <img src="./assets/images/akash-profile.jpg" alt="Akash Keluth icon" onerror="this.onerror=null; this.src='https://github.com/Akashkeluth03.png';" />
+          <img src="./assets/images/akash-profile.jpg" alt="Akash Keluth avatar" onerror="this.onerror=null; this.src='https://github.com/Akashkeluth03.png';" />
+          <span class="brand-status-dot"></span>
         </div>
         <div class="brand-text">
           <span class="brand-name">Akash Keluth</span>
@@ -56,37 +59,116 @@
         </div>
       </a>
 
-      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
-        <a href="#about" class="nav-link"><i class="fa-regular fa-user"></i> About</a>
-        <a href="#work" class="nav-link"><i class="fa-solid fa-code"></i> Projects</a>
-        <a href="#skills" class="nav-link"><i class="fa-solid fa-layer-group"></i> Skills</a>
-        <a href="#terminal" class="nav-link"><i class="fa-solid fa-terminal"></i> Terminal</a>
-        <a href="#journey" class="nav-link"><i class="fa-regular fa-compass"></i> Journey</a>
-        <a href="#contact" class="nav-link"><i class="fa-regular fa-paper-plane"></i> Contact</a>
+      <!-- Desktop Navigation Menu (Hidden on mobile) -->
+      <nav class="desktop-nav" aria-label="Desktop navigation">
+        <a href="#about" class="nav-link"><i class="fa-regular fa-user"></i> <span>About</span></a>
+        <a href="#work" class="nav-link"><i class="fa-solid fa-code"></i> <span>Projects</span></a>
+        <a href="#skills" class="nav-link"><i class="fa-solid fa-layer-group"></i> <span>Skills</span></a>
+        <a href="#terminal" class="nav-link"><i class="fa-solid fa-terminal"></i> <span>Terminal</span></a>
+        <a href="#journey" class="nav-link"><i class="fa-regular fa-compass"></i> <span>Journey</span></a>
+        <a href="#contact" class="nav-link"><i class="fa-regular fa-paper-plane"></i> <span>Contact</span></a>
       </nav>
 
+      <!-- Desktop Nav Right Controls -->
       <div class="nav-actions">
-        <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="social-icon-btn" aria-label="GitHub Profile">
+        <!-- Interactive Theme Switcher Button -->
+        <div class="theme-switcher-dropdown">
+          <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Toggle Theme" title="Switch Theme (Obsidian / Midnight / Light)">
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+          </button>
+          <div class="theme-dropdown-menu" id="themeDropdownMenu">
+            <button class="theme-option active" data-theme="obsidian" type="button">
+              <span class="theme-swatch swatch-obsidian"></span>
+              <span>Obsidian Dark</span>
+            </button>
+            <button class="theme-option" data-theme="midnight" type="button">
+              <span class="theme-swatch swatch-midnight"></span>
+              <span>Midnight Neon</span>
+            </button>
+            <button class="theme-option" data-theme="light" type="button">
+              <span class="theme-swatch swatch-light"></span>
+              <span>Studio Light</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="social-icon-btn nav-github-btn" aria-label="GitHub Profile">
           <i class="fa-brands fa-github"></i>
         </a>
-        <a href="mailto:akashkeluth03@gmail.com" class="btn btn-primary btn-sm">
+
+        <a href="mailto:akashkeluth03@gmail.com" class="btn btn-primary btn-sm nav-cta-btn">
           <span>Let's Talk</span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
+
+        <!-- Mobile Hamburger Toggle (Visible on mobile only) -->
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
         </button>
       </div>
     </div>
   </header>
 
+  <!-- ==================== MOBILE SLIDE-IN DRAWER ==================== -->
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <img src="./assets/images/akash-profile.jpg" alt="Akash Keluth avatar" onerror="this.onerror=null; this.src='https://github.com/Akashkeluth03.png';" />
+        <div>
+          <span class="drawer-name">Akash Keluth</span>
+          <span class="drawer-role">MSRIT • Bangalore</span>
+        </div>
+      </div>
+      <button class="drawer-close-btn" id="menuCloseBtn" type="button" aria-label="Close navigation menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="drawer-nav">
+      <a href="#about" class="drawer-link"><i class="fa-regular fa-user"></i> <span>About Me</span></a>
+      <a href="#work" class="drawer-link"><i class="fa-solid fa-code"></i> <span>Projects</span></a>
+      <a href="#skills" class="drawer-link"><i class="fa-solid fa-layer-group"></i> <span>Skills</span></a>
+      <a href="#terminal" class="drawer-link"><i class="fa-solid fa-terminal"></i> <span>Terminal CLI</span></a>
+      <a href="#journey" class="drawer-link"><i class="fa-regular fa-compass"></i> <span>Journey</span></a>
+      <a href="#contact" class="drawer-link"><i class="fa-regular fa-paper-plane"></i> <span>Contact</span></a>
+    </nav>
+
+    <!-- Mobile Drawer Theme Switcher -->
+    <div class="drawer-theme-picker">
+      <span class="picker-title"><i class="fa-solid fa-palette"></i> Color Theme</span>
+      <div class="theme-pills">
+        <button class="theme-pill-btn active" data-theme-val="obsidian" type="button">
+          <span class="pill-dot obsidian-dot"></span> Obsidian
+        </button>
+        <button class="theme-pill-btn" data-theme-val="midnight" type="button">
+          <span class="pill-dot midnight-dot"></span> Midnight
+        </button>
+        <button class="theme-pill-btn" data-theme-val="light" type="button">
+          <span class="pill-dot light-dot"></span> Light
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="mailto:akashkeluth03@gmail.com" class="btn btn-primary btn-block">
+        <i class="fa-regular fa-paper-plane"></i>
+        <span>Let's Talk</span>
+      </a>
+      <div class="drawer-socials">
+        <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" aria-label="GitHub Profile"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:akashkeluth03@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
   <main id="top">
     <!-- ==================== HERO SECTION ==================== -->
     <section class="hero section-shell">
       <div class="hero-grid">
-        <!-- Hero Content Left -->
+        <!-- Left: Hero Text Copy -->
         <div class="hero-copy reveal">
           <div class="status-badge">
             <span class="pulse-radar"></span>
@@ -97,7 +179,7 @@
             Engineering <span class="gradient-text">Intelligent Systems</span> with Curiosity &amp; Code.
           </h1>
 
-          <!-- Dynamic Typing Subtitle -->
+          <!-- Dynamic Typing Subtitle with JS Engine -->
           <div class="typing-container">
             <span class="typing-prefix">I am a</span>
             <span class="typing-dynamic" id="typingText"></span>
@@ -105,15 +187,15 @@
           </div>
 
           <p class="hero-intro">
-            I am Akash, an Information Science &amp; Engineering student passionate about turning complex ideas into scalable, high-performance software — spanning Machine Learning models, Cloud &amp; DevOps pipelines, and modern full-stack products.
+            I am Akash, an Information Science &amp; Engineering scholar at <strong>Ramaiah Institute of Technology (MSRIT)</strong> passionate about transforming intricate challenges into high-performance software — across Machine Learning, Cloud &amp; DevOps infrastructure, and modern full-stack web platforms.
           </p>
 
           <div class="hero-cta-group">
             <a class="btn btn-primary btn-glow" href="#work">
-              <span>Explore Masterpieces</span>
+              <span>Explore Projects</span>
               <i class="fa-solid fa-arrow-down-long"></i>
             </a>
-            <button class="btn btn-glass copy-email-btn" data-email="akashkeluth03@gmail.com">
+            <button class="btn btn-glass copy-email-btn" data-email="akashkeluth03@gmail.com" type="button">
               <i class="fa-regular fa-copy"></i>
               <span>Copy Email</span>
             </button>
@@ -133,29 +215,21 @@
           </div>
         </div>
 
-        <!-- Hero Visual Right: Akash's Profile Showcase -->
+        <!-- Right: Akash's Showcase Portrait Card -->
         <div class="hero-showcase reveal reveal-delay">
           <div class="showcase-card tilt-card" id="heroPortrait">
             <div class="card-glow-bg"></div>
 
-            <!-- Rotating Rings / Cyber Orbits -->
-            <div class="orbit-ring orbit-ring-outer"></div>
-            <div class="orbit-ring orbit-ring-inner"></div>
+            <!-- Rotating Rings / Cyber Orbits (Desktop only) -->
+            <div class="orbit-ring orbit-ring-outer" aria-hidden="true"></div>
+            <div class="orbit-ring orbit-ring-inner" aria-hidden="true"></div>
 
-            <!-- Floating Interactive Pills -->
+            <!-- Floating Credibility Pills (Desktop only, positioned neatly) -->
             <div class="floating-pill pill-top-right float-anim-1">
-              <div class="pill-icon-glow"><i class="fa-solid fa-bolt"></i></div>
+              <div class="pill-icon-glow cyan"><i class="fa-solid fa-bolt"></i></div>
               <div class="pill-info">
                 <span class="pill-label">Audio ML Model</span>
                 <span class="pill-val">98.4% Accuracy</span>
-              </div>
-            </div>
-
-            <div class="floating-pill pill-bottom-left float-anim-2">
-              <div class="pill-icon-glow green"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-              <div class="pill-info">
-                <span class="pill-label">Cloud Architecture</span>
-                <span class="pill-val">AWS &bull; Docker &bull; CI/CD</span>
               </div>
             </div>
 
@@ -164,6 +238,14 @@
               <div class="pill-info">
                 <span class="pill-label">Focus</span>
                 <span class="pill-val">ISE &bull; Python Dev</span>
+              </div>
+            </div>
+
+            <div class="floating-pill pill-bottom-right float-anim-2">
+              <div class="pill-icon-glow green"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+              <div class="pill-info">
+                <span class="pill-label">Cloud Architecture</span>
+                <span class="pill-val">AWS &bull; Docker &bull; K8s</span>
               </div>
             </div>
 
@@ -178,13 +260,20 @@
               </div>
             </div>
 
+            <!-- Mobile-only inline badges (Clean replacement for floating pills on mobile) -->
+            <div class="portrait-mobile-badges" aria-hidden="false">
+              <span class="m-badge"><i class="fa-solid fa-bolt text-cyan"></i> 98.4% Audio ML</span>
+              <span class="m-badge"><i class="fa-solid fa-cloud text-green"></i> AWS &amp; Docker</span>
+              <span class="m-badge"><i class="fa-solid fa-graduation-cap text-purple"></i> MSRIT ISE</span>
+            </div>
+
             <!-- Bottom Bio Card Mini -->
             <div class="portrait-card-footer">
               <div class="footer-left">
                 <span class="footer-name">Akash Keluth</span>
                 <span class="footer-title">ISE Student &bull; Engineer</span>
               </div>
-              <a href="mailto:akashkeluth03@gmail.com" class="footer-link" aria-label="Send direct email">
+              <a href="mailto:akashkeluth03@gmail.com" class="footer-link" aria-label="Send direct email to Akash">
                 <i class="fa-regular fa-envelope"></i>
               </a>
             </div>
@@ -194,13 +283,13 @@
     </section>
 
     <!-- ==================== STATS COUNTER STRIP ==================== -->
-    <section class="stats-banner" aria-label="Key Highlights">
+    <section class="stats-banner" aria-label="Key Highlights and Achievements">
       <div class="section-shell">
         <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-icon-wrapper"><i class="fa-solid fa-code"></i></div>
             <div class="stat-content">
-              <div class="stat-number" data-target="300" data-suffix="+">0+</div>
+              <div class="stat-number" data-target="300" data-suffix="+">300+</div>
               <div class="stat-label">DSA Challenges Solved</div>
             </div>
           </div>
@@ -208,7 +297,7 @@
           <div class="stat-card">
             <div class="stat-icon-wrapper"><i class="fa-solid fa-microchip"></i></div>
             <div class="stat-content">
-              <div class="stat-number" data-target="98.4" data-suffix="%">0%</div>
+              <div class="stat-number" data-target="98.4" data-suffix="%">98.4%</div>
               <div class="stat-label">Audio ML Model Accuracy</div>
             </div>
           </div>
@@ -216,7 +305,7 @@
           <div class="stat-card">
             <div class="stat-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div>
             <div class="stat-content">
-              <div class="stat-number" data-target="15" data-suffix="+">0+</div>
+              <div class="stat-number" data-target="15" data-suffix="+">15+</div>
               <div class="stat-label">Core Technologies Mastered</div>
             </div>
           </div>
@@ -224,7 +313,7 @@
           <div class="stat-card">
             <div class="stat-icon-wrapper"><i class="fa-solid fa-fire-flame-curved"></i></div>
             <div class="stat-content">
-              <div class="stat-number" data-target="100" data-suffix="%">0%</div>
+              <div class="stat-number" data-target="100" data-suffix="%">100%</div>
               <div class="stat-label">Passion for Scalable Impact</div>
             </div>
           </div>
@@ -246,7 +335,7 @@
 
           <div class="quote-card">
             <i class="fa-solid fa-quote-left quote-icon"></i>
-            <p>"I love the stretch between an idea and a working, resilient system: asking deeper questions, mastering the tools, and delivering value."</p>
+            <p>"I love the stretch between an idea and a working, resilient system: asking deeper questions, mastering the tools, and delivering tangible value."</p>
             <span class="quote-author">&mdash; Akash Keluth</span>
           </div>
         </div>
@@ -319,34 +408,46 @@
         <div class="section-tag"><i class="fa-solid fa-sparkles"></i> Portfolio Showcase</div>
         <h2 class="section-title">Featured <span class="gradient-text">Engineering Masterpieces</span></h2>
         <p class="section-subtitle">
-          From cutting-edge acoustic authentication against synthetic voices to seamless international discovery platforms and cloud infrastructure.
+          From cutting-edge acoustic authentication against synthetic voices to international student discovery platforms and cloud infrastructure.
         </p>
 
-        <!-- Project Filter Buttons -->
-        <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">All Projects</button>
-          <button class="filter-btn" data-filter="ai">AI &amp; Machine Learning</button>
-          <button class="filter-btn" data-filter="fullstack">Full-Stack Apps</button>
-          <button class="filter-btn" data-filter="cloud">Cloud &amp; DevOps</button>
+        <!-- Interactive JS Project Search & Filter Toolbar -->
+        <div class="projects-toolbar">
+          <div class="project-search-bar">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="projectSearchInput" placeholder="Filter by tech (e.g. Python, MFCC, React, Docker, AWS)..." autocomplete="off" spellcheck="false" />
+            <button id="clearSearchBtn" class="clear-search-btn" aria-label="Clear search input" type="button"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+
+          <div class="project-filters">
+            <button class="filter-btn active" data-filter="all" type="button">All Projects <span class="filter-count">4</span></button>
+            <button class="filter-btn" data-filter="ai" type="button">AI &amp; ML <span class="filter-count">2</span></button>
+            <button class="filter-btn" data-filter="fullstack" type="button">Full-Stack <span class="filter-count">1</span></button>
+            <button class="filter-btn" data-filter="cloud" type="button">Cloud &amp; DevOps <span class="filter-count">1</span></button>
+          </div>
+
+          <div class="projects-meta-bar">
+            <span id="projectsCountBadge" class="projects-count-badge">Showing 4 of 4 projects</span>
+          </div>
         </div>
       </div>
 
-      <div class="projects-container">
+      <div class="projects-container" id="projectsContainer">
         <!-- PROJECT 1: Deepfake Audio Detection -->
-        <article class="project-showcase-card reveal" data-category="ai">
+        <article class="project-showcase-card reveal" data-category="ai" data-project-id="deepfake-audio" data-keywords="python machine learning ai audio spectral mfcc lfcc scikit-learn deepfake signal processing">
           <div class="showcase-visual">
             <div class="visual-img-wrap">
-              <img src="./assets/images/deepfake-audio.jpg" alt="Deepfake Audio Detection AI spectrogram preview" class="project-img" />
+              <img src="./assets/images/deepfake-audio.jpg" alt="Deepfake Audio Detection AI spectrogram preview" class="project-img" loading="lazy" />
               <div class="visual-overlay"></div>
             </div>
             
-            <!-- Live Audio Spectrogram Simulator -->
+            <!-- Live Audio Spectrogram Simulator with Web Audio API Integration -->
             <div class="interactive-audio-player">
               <div class="player-top">
-                <span class="audio-badge"><i class="fa-solid fa-wave-square"></i> Real-time Spectral Analyzer</span>
-                <span class="audio-status" id="audioSimStatus">Status: Idle</span>
+                <span class="audio-badge"><i class="fa-solid fa-wave-square"></i> Web Audio Spectral Analyzer</span>
+                <span class="audio-status" id="audioSimStatus">Status: Model Ready</span>
               </div>
-              <div class="visualizer-bars" id="waveformBars">
+              <div class="visualizer-bars" id="waveformBars" aria-label="Audio frequency visualizer">
                 <span style="height: 35%"></span><span style="height: 60%"></span><span style="height: 85%"></span>
                 <span style="height: 45%"></span><span style="height: 90%"></span><span style="height: 70%"></span>
                 <span style="height: 30%"></span><span style="height: 95%"></span><span style="height: 65%"></span>
@@ -355,13 +456,13 @@
                 <span style="height: 85%"></span><span style="height: 50%"></span><span style="height: 65%"></span>
               </div>
               <div class="player-controls">
-                <button class="btn btn-sm btn-audio-demo" id="audioDemoBtn">
+                <button class="btn btn-sm btn-audio-demo" id="audioDemoBtn" type="button">
                   <i class="fa-solid fa-play" id="audioBtnIcon"></i>
                   <span id="audioBtnText">Run Acoustic Classification</span>
                 </button>
                 <div class="detection-result" id="audioResultBadge">
                   <span class="result-indicator verified"></span>
-                  <span class="result-text">98.4% Confidence: Genuine Audio</span>
+                  <span class="result-text">98.4% Confidence: Authentic Audio</span>
                 </div>
               </div>
             </div>
@@ -395,23 +496,23 @@
             </div>
 
             <div class="project-actions">
-              <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="btn btn-primary">
-                <i class="fa-brands fa-github"></i>
-                <span>Explore Source Code</span>
-              </a>
-              <button class="btn btn-glass copy-email-btn" data-email="akashkeluth03@gmail.com">
-                <i class="fa-regular fa-envelope"></i>
-                <span>Request Whitepaper</span>
+              <button class="btn btn-primary open-modal-btn" data-project-key="deepfake-audio" type="button">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Architecture Details</span>
               </button>
+              <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="btn btn-glass">
+                <i class="fa-brands fa-github"></i>
+                <span>Source Code</span>
+              </a>
             </div>
           </div>
         </article>
 
         <!-- PROJECT 2: Catch My Dream -->
-        <article class="project-showcase-card reverse reveal" data-category="fullstack">
+        <article class="project-showcase-card reverse reveal" data-category="fullstack" data-project-id="catch-my-dream" data-keywords="react node express mongodb fullstack web platform student relocation javascript api">
           <div class="showcase-visual">
             <div class="visual-img-wrap">
-              <img src="./assets/images/catch-my-dream.jpg" alt="Catch My Dream platform preview" class="project-img" />
+              <img src="./assets/images/catch-my-dream.jpg" alt="Catch My Dream platform preview" class="project-img" loading="lazy" />
               <div class="visual-overlay"></div>
             </div>
             
@@ -458,23 +559,23 @@
             </div>
 
             <div class="project-actions">
-              <a href="https://github.com/Akashkeluth03/catchmydream1" target="_blank" rel="noreferrer" class="btn btn-primary">
-                <i class="fa-brands fa-github"></i>
-                <span>View GitHub Repository</span>
-              </a>
+              <button class="btn btn-primary open-modal-btn" data-project-key="catch-my-dream" type="button">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Architecture Details</span>
+              </button>
               <a href="https://github.com/Akashkeluth03/catchmydream1" target="_blank" rel="noreferrer" class="btn btn-glass">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span>Live Demo Info</span>
+                <i class="fa-brands fa-github"></i>
+                <span>View GitHub Repo</span>
               </a>
             </div>
           </div>
         </article>
 
         <!-- PROJECT 3: Cloud & DevOps Automation Matrix -->
-        <article class="project-showcase-card reveal" data-category="cloud">
+        <article class="project-showcase-card reveal" data-category="cloud" data-project-id="cloud-devops" data-keywords="docker kubernetes aws cloud devops jenkins ci/cd linux containers infrastructure microservices">
           <div class="showcase-visual">
             <div class="visual-img-wrap">
-              <img src="./assets/images/cloud-devops.jpg" alt="Cloud Infrastructure and Kubernetes preview" class="project-img" />
+              <img src="./assets/images/cloud-devops.jpg" alt="Cloud Infrastructure and Kubernetes preview" class="project-img" loading="lazy" />
               <div class="visual-overlay"></div>
             </div>
           </div>
@@ -506,23 +607,23 @@
             </div>
 
             <div class="project-actions">
-              <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="btn btn-primary">
+              <button class="btn btn-primary open-modal-btn" data-project-key="cloud-devops" type="button">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Architecture Details</span>
+              </button>
+              <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="btn btn-glass">
                 <i class="fa-brands fa-github"></i>
                 <span>Explore DevOps Repos</span>
-              </a>
-              <a href="#contact" class="btn btn-glass">
-                <i class="fa-solid fa-diagram-project"></i>
-                <span>Discuss Cloud Architecture</span>
               </a>
             </div>
           </div>
         </article>
 
         <!-- PROJECT 4: AI & Deep Learning Research Lab -->
-        <article class="project-showcase-card reverse reveal" data-category="ai">
+        <article class="project-showcase-card reverse reveal" data-category="ai" data-project-id="ai-ml-pipeline" data-keywords="ai deep learning tensorflow python numpy pandas machine learning neural networks research scikit">
           <div class="showcase-visual">
             <div class="visual-img-wrap">
-              <img src="./assets/images/ai-ml-pipeline.jpg" alt="AI and Deep Learning research dashboard" class="project-img" />
+              <img src="./assets/images/ai-ml-pipeline.jpg" alt="AI and Deep Learning research dashboard" class="project-img" loading="lazy" />
               <div class="visual-overlay"></div>
             </div>
           </div>
@@ -553,13 +654,25 @@
             </div>
 
             <div class="project-actions">
-              <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="btn btn-primary">
+              <button class="btn btn-primary open-modal-btn" data-project-key="ai-ml-pipeline" type="button">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Architecture Details</span>
+              </button>
+              <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="btn btn-glass">
                 <i class="fa-brands fa-github"></i>
-                <span>View Notebooks &amp; Code</span>
+                <span>View Notebooks</span>
               </a>
             </div>
           </div>
         </article>
+      </div>
+
+      <!-- Empty State for Search Filter -->
+      <div class="no-projects-found" id="noProjectsMessage" style="display: none;">
+        <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+        <h3>No projects match your search</h3>
+        <p>Try searching for terms like "Python", "React", "Docker", "AWS", or "MFCC".</p>
+        <button class="btn btn-glass btn-sm" id="resetSearchFilterBtn" type="button">Reset Filters</button>
       </div>
     </section>
 
@@ -569,13 +682,22 @@
         <div class="section-tag"><i class="fa-solid fa-screwdriver-wrench"></i> The Arsenal</div>
         <h2 class="section-title">Technical <span class="gradient-text">Skills &amp; Competencies</span></h2>
         <p class="section-subtitle">
-          A balanced mix of foundational computer science, modern languages, machine learning toolkits, and production deployment frameworks.
+          A balanced mix of foundational computer science, modern programming languages, machine learning toolkits, and production deployment frameworks.
         </p>
+
+        <!-- Interactive Skills Tab Selector -->
+        <div class="skills-tab-bar">
+          <button class="skill-tab-btn active" data-skill-tab="all" type="button">All Disciplines</button>
+          <button class="skill-tab-btn" data-skill-tab="languages" type="button">Languages</button>
+          <button class="skill-tab-btn" data-skill-tab="aiml" type="button">AI &amp; ML</button>
+          <button class="skill-tab-btn" data-skill-tab="web" type="button">Full-Stack</button>
+          <button class="skill-tab-btn" data-skill-tab="cloud" type="button">DevOps &amp; Cloud</button>
+        </div>
       </div>
 
       <div class="skills-grid reveal">
         <!-- Category 1: Languages -->
-        <div class="skill-category-card tilt-card">
+        <div class="skill-category-card tilt-card" data-category="languages">
           <div class="cat-header">
             <div class="cat-icon"><i class="fa-solid fa-code"></i></div>
             <div>
@@ -588,27 +710,31 @@
               <i class="fa-brands fa-python brand-python"></i>
               <span>Python (Advanced)</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 95%"></div></div>
+              <span class="skill-pct">95%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-brands fa-js brand-js"></i>
               <span>JavaScript (ES6+)</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 88%"></div></div>
+              <span class="skill-pct">88%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-solid fa-c"></i>
               <span>C / C++</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 85%"></div></div>
+              <span class="skill-pct">85%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-brands fa-java brand-java"></i>
               <span>Java</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 80%"></div></div>
+              <span class="skill-pct">80%</span>
             </div>
           </div>
         </div>
 
         <!-- Category 2: AI & ML -->
-        <div class="skill-category-card tilt-card">
+        <div class="skill-category-card tilt-card" data-category="aiml">
           <div class="cat-header">
             <div class="cat-icon ai-cat"><i class="fa-solid fa-brain"></i></div>
             <div>
@@ -621,27 +747,31 @@
               <i class="fa-solid fa-microchip"></i>
               <span>Scikit-Learn &amp; ML</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 92%"></div></div>
+              <span class="skill-pct">92%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-solid fa-wave-square"></i>
               <span>MFCC &amp; LFCC Audio Analysis</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 90%"></div></div>
+              <span class="skill-pct">90%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-solid fa-network-wired"></i>
               <span>TensorFlow / Deep Learning</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 82%"></div></div>
+              <span class="skill-pct">82%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-solid fa-table-cells"></i>
               <span>NumPy &amp; Pandas</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 90%"></div></div>
+              <span class="skill-pct">90%</span>
             </div>
           </div>
         </div>
 
         <!-- Category 3: Full-Stack Web -->
-        <div class="skill-category-card tilt-card">
+        <div class="skill-category-card tilt-card" data-category="web">
           <div class="cat-header">
             <div class="cat-icon web-cat"><i class="fa-solid fa-laptop-code"></i></div>
             <div>
@@ -654,27 +784,31 @@
               <i class="fa-brands fa-react brand-react"></i>
               <span>React.js</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 88%"></div></div>
+              <span class="skill-pct">88%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-brands fa-node-js brand-node"></i>
               <span>Node.js &amp; Express</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 85%"></div></div>
+              <span class="skill-pct">85%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-brands fa-html5 brand-html"></i>
               <span>HTML5 &amp; Modern CSS3</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 94%"></div></div>
+              <span class="skill-pct">94%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-solid fa-database brand-db"></i>
               <span>MongoDB &amp; REST APIs</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 84%"></div></div>
+              <span class="skill-pct">84%</span>
             </div>
           </div>
         </div>
 
         <!-- Category 4: Cloud & DevOps -->
-        <div class="skill-category-card tilt-card">
+        <div class="skill-category-card tilt-card" data-category="cloud">
           <div class="cat-header">
             <div class="cat-icon cloud-cat"><i class="fa-solid fa-cloud-bolt"></i></div>
             <div>
@@ -687,21 +821,25 @@
               <i class="fa-brands fa-docker brand-docker"></i>
               <span>Docker Containerization</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 88%"></div></div>
+              <span class="skill-pct">88%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-solid fa-cubes brand-k8s"></i>
               <span>Kubernetes Orchestration</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 78%"></div></div>
+              <span class="skill-pct">78%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-brands fa-aws brand-aws"></i>
               <span>AWS Cloud Architecture</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 80%"></div></div>
+              <span class="skill-pct">80%</span>
             </div>
             <div class="skill-pill">
               <i class="fa-brands fa-linux brand-linux"></i>
               <span>Linux &amp; Git CI/CD</span>
               <div class="skill-bar-mini"><div class="fill" style="width: 92%"></div></div>
+              <span class="skill-pct">92%</span>
             </div>
           </div>
         </div>
@@ -713,45 +851,50 @@
       <div class="section-header-center reveal">
         <div class="section-tag"><i class="fa-solid fa-terminal"></i> Interactive Shell</div>
         <h2 class="section-title">Akash's <span class="gradient-text">Developer Console</span></h2>
-        <p class="section-subtitle">Type commands like <code>about</code>, <code>skills</code>, <code>projects</code>, <code>contact</code>, or <code>clear</code> to inspect my profile interactive CLI.</p>
+        <p class="section-subtitle">Type commands like <code>about</code>, <code>skills</code>, <code>projects</code>, <code>theme light</code>, <code>quote</code>, or click quick chips below.</p>
       </div>
 
       <div class="terminal-window reveal">
         <div class="terminal-titlebar">
           <div class="traffic-lights">
-            <span class="light red"></span>
-            <span class="light yellow"></span>
-            <span class="light green"></span>
+            <span class="light red" title="Close simulation"></span>
+            <span class="light yellow" title="Minimize simulation"></span>
+            <span class="light green" title="Maximize simulation"></span>
           </div>
           <div class="terminal-title">akash@keluth-devbox: ~ (zsh)</div>
           <div class="terminal-actions">
-            <span class="badge-cli">v2.4.0</span>
+            <button class="terminal-sound-btn" id="terminalSoundToggle" title="Toggle Terminal Sound Effects" type="button">
+              <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <span class="badge-cli">v2.5.0</span>
           </div>
         </div>
 
         <div class="terminal-body" id="terminalBody">
           <div class="term-line output-text">
-            <span class="highlight-cyan">Welcome to Akash Keluth's Interactive Terminal v2.4.0</span><br />
-            Type <span class="cmd-pill">help</span> to view available commands, or click the quick command chips below.
+            <span class="highlight-cyan">Welcome to Akash Keluth's Interactive Terminal v2.5.0</span><br />
+            Type <span class="cmd-pill">help</span> to view commands, or tap any command chip below.
           </div>
         </div>
 
-        <!-- Quick Terminal Chips -->
+        <!-- Quick Terminal Chips (Horizontal Scrollable on Mobile) -->
         <div class="terminal-quick-chips">
           <span class="chip-label">Quick Run:</span>
-          <button class="term-chip" data-cmd="whoami">whoami</button>
-          <button class="term-chip" data-cmd="skills">skills</button>
-          <button class="term-chip" data-cmd="projects">projects</button>
-          <button class="term-chip" data-cmd="education">education</button>
-          <button class="term-chip" data-cmd="contact">contact</button>
-          <button class="term-chip" data-cmd="clear">clear</button>
+          <button class="term-chip" data-cmd="whoami" type="button">whoami</button>
+          <button class="term-chip" data-cmd="skills" type="button">skills</button>
+          <button class="term-chip" data-cmd="projects" type="button">projects</button>
+          <button class="term-chip" data-cmd="education" type="button">education</button>
+          <button class="term-chip" data-cmd="theme" type="button">theme</button>
+          <button class="term-chip" data-cmd="quote" type="button">quote</button>
+          <button class="term-chip" data-cmd="contact" type="button">contact</button>
+          <button class="term-chip" data-cmd="clear" type="button">clear</button>
         </div>
 
         <!-- Terminal Input Bar -->
         <form class="terminal-input-bar" id="terminalForm">
           <span class="term-prompt">akash@portfolio:~$</span>
-          <input type="text" id="terminalInput" class="term-input" placeholder="Type a command (e.g. help)..." autocomplete="off" spellcheck="false" />
-          <button type="submit" class="term-submit-btn"><i class="fa-solid fa-arrow-turn-down"></i></button>
+          <input type="text" id="terminalInput" class="term-input" placeholder="Type a command (try 'help')..." autocomplete="off" spellcheck="false" />
+          <button type="submit" class="term-submit-btn" aria-label="Run command"><i class="fa-solid fa-arrow-turn-down"></i></button>
         </form>
       </div>
     </section>
@@ -771,9 +914,9 @@
         <div class="timeline-card">
           <div class="timeline-marker"><i class="fa-solid fa-graduation-cap"></i></div>
           <div class="timeline-content">
-            <span class="timeline-year">Present</span>
+            <span class="timeline-year">Present &bull; MSRIT Bangalore</span>
             <h3>Information Science &amp; Engineering</h3>
-            <h4>Ramaiah Institute of Technology (MSRIT), Bangalore</h4>
+            <h4>Ramaiah Institute of Technology, Bangalore</h4>
             <p>Mastering core computer science domains including Data Structures &amp; Algorithms (300+ challenges solved), Operating Systems, Database Management, and Object-Oriented Software Design.</p>
           </div>
         </div>
@@ -830,7 +973,7 @@
                 <span class="info-label">Direct Email</span>
                 <a href="mailto:akashkeluth03@gmail.com" class="info-link">akashkeluth03@gmail.com</a>
               </div>
-              <button class="copy-icon-btn copy-email-btn" data-email="akashkeluth03@gmail.com" title="Copy Email">
+              <button class="copy-icon-btn copy-email-btn" data-email="akashkeluth03@gmail.com" title="Copy Email" type="button">
                 <i class="fa-regular fa-copy"></i>
               </button>
             </div>
@@ -841,7 +984,7 @@
                 <span class="info-label">GitHub Profile</span>
                 <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="info-link">github.com/Akashkeluth03</a>
               </div>
-              <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="open-icon-link">
+              <a href="https://github.com/Akashkeluth03" target="_blank" rel="noreferrer" class="open-icon-link" aria-label="Open GitHub in new tab">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
             </div>
@@ -857,43 +1000,47 @@
         </div>
 
         <div class="contact-right">
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" id="contactForm" novalidate>
             <h3 class="form-title">Send a Direct Message</h3>
 
             <div class="form-group">
-              <label for="userName">Your Name</label>
+              <label for="userName">Your Name <span class="required">*</span></label>
               <div class="input-wrap">
                 <i class="fa-regular fa-user"></i>
-                <input type="text" id="userName" name="name" required placeholder="e.g. Alex Morgan" />
+                <input type="text" id="userName" name="name" required placeholder="e.g. Alex Morgan" autocomplete="name" />
               </div>
+              <span class="field-error" id="nameError"></span>
             </div>
 
             <div class="form-group">
-              <label for="userEmail">Your Email</label>
+              <label for="userEmail">Your Email <span class="required">*</span></label>
               <div class="input-wrap">
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" id="userEmail" name="email" required placeholder="e.g. alex@company.com" />
+                <input type="email" id="userEmail" name="email" required placeholder="e.g. alex@company.com" autocomplete="email" />
               </div>
+              <span class="field-error" id="emailError"></span>
             </div>
 
             <div class="form-group">
-              <label for="userSubject">Subject</label>
+              <label for="userSubject">Subject <span class="required">*</span></label>
               <div class="input-wrap">
                 <i class="fa-solid fa-pen"></i>
                 <input type="text" id="userSubject" name="subject" required placeholder="e.g. Collaboration on AI / Engineering Role" />
               </div>
+              <span class="field-error" id="subjectError"></span>
             </div>
 
             <div class="form-group">
-              <label for="userMessage">Message</label>
+              <label for="userMessage">Message <span class="required">*</span></label>
               <div class="input-wrap textarea-wrap">
                 <i class="fa-regular fa-comment-dots"></i>
                 <textarea id="userMessage" name="message" rows="4" required placeholder="Share details about your project, idea, or role..."></textarea>
               </div>
+              <span class="field-error" id="messageError"></span>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn">
-              <span>Send Message</span>
+              <span class="btn-text">Send Message</span>
               <i class="fa-regular fa-paper-plane"></i>
             </button>
           </form>
@@ -901,6 +1048,26 @@
       </div>
     </section>
   </main>
+
+  <!-- ==================== PROJECT DEEP DIVE MODAL ==================== -->
+  <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close project modal" type="button">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-content-wrap" id="modalContent">
+        <!-- Content injected dynamically via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FLOATING QUICK-ACTION & SCROLL PROGRESS ==================== -->
+  <div class="floating-widget" id="floatingWidget">
+    <button class="scroll-progress-btn" id="scrollProgressBtn" aria-label="Scroll back to top" type="button">
+      <i class="fa-solid fa-arrow-up progress-arrow"></i>
+    </button>
+  </div>
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="site-footer">
@@ -911,7 +1078,7 @@
         </div>
         <div class="footer-text">
           <span class="brand-name">Akash Keluth</span>
-          <span class="brand-sub">Information Science &amp; Engineering &bull; AI Builder</span>
+          <span class="brand-sub">Information Science &amp; Engineering &bull; MSRIT Bangalore</span>
         </div>
       </div>
 
@@ -933,12 +1100,12 @@
     <div class="footer-bottom">
       <div class="section-shell footer-bottom-flex">
         <span>&copy; <span id="currentYear"></span> Akash Keluth. Crafted with passion &amp; engineering precision.</span>
-        <span>Bangalore, India &bull; Open to global opportunities</span>
+        <span>Bangalore, India &bull; Open to global engineering opportunities</span>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
+  <!-- Masterclass JavaScript Engine -->
+  <script src="script.js?v=3.1.0"></script>
 </body>
 </html>
